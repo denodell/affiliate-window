@@ -31,7 +31,7 @@ export default class AffiliateWindow {
 		})
 	}
 
-	getMerchants({ joined = true }) {
+	getMerchants({ joined = true } = {}) {
 		return this.connect().then(client => {
 			return client.getMerchantList(joined ? { sRelationship: 'joined' } : {}).then(result => {
 				const { getMerchantListReturn = {} } = result
@@ -74,7 +74,7 @@ export default class AffiliateWindow {
 	getTransactions({
 		startDate = new Date(Date.now() - (30 * 1000 * 60 * 60 * 24)).toISOString(), // 30 days ago
 		endDate = new Date().toISOString(),	// now
-	}) {
+	} = {}) {
 		return this.connect().then(client => client.getTransactionList({
 			dStartDate: startDate,
 			dEndDate: endDate,
