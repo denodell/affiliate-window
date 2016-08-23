@@ -1,0 +1,130 @@
+{
+  "getCommissionGroupListReturn": {
+    "CommissionGroup": [
+      {
+        "sCommissionGroupCode": "TEA1",
+        "sCommissionGroupName": "TEA 1 MONTH",
+        "mAmount": {
+          "dAmount": "1",
+          "sCurrency": "GBP"
+        },
+        "fPercentage": "0"
+      },
+      {
+        "sCommissionGroupCode": "TEA3",
+        "sCommissionGroupName": "TEA 3 MONTH",
+        "mAmount": {
+          "dAmount": "3",
+          "sCurrency": "GBP"
+        },
+        "fPercentage": "0"
+      },
+      {
+        "sCommissionGroupCode": "TEA6",
+        "sCommissionGroupName": "TEA 6 MONTH",
+        "mAmount": {
+          "dAmount": "6",
+          "sCurrency": "GBP"
+        },
+        "fPercentage": "0"
+      },
+      {
+        "sCommissionGroupCode": "TEA12",
+        "sCommissionGroupName": "TEA 12 MONTH",
+        "mAmount": {
+          "dAmount": "12",
+          "sCurrency": "GBP"
+        },
+        "fPercentage": "0"
+      },
+      {
+        "sCommissionGroupCode": "COFFEE1",
+        "sCommissionGroupName": "COFFEE 1 MONTH",
+        "mAmount": {
+          "dAmount": "1",
+          "sCurrency": "GBP"
+        },
+        "fPercentage": "0"
+      },
+      {
+        "sCommissionGroupCode": "COFFEE3",
+        "sCommissionGroupName": "COFFEE 3 MONTH",
+        "mAmount": {
+          "dAmount": "3",
+          "sCurrency": "GBP"
+        },
+        "fPercentage": "0"
+      },
+      {
+        "sCommissionGroupCode": "COFFEE6",
+        "sCommissionGroupName": "COFFEE 6 MONTH",
+        "mAmount": {
+          "dAmount": "6",
+          "sCurrency": "GBP"
+        },
+        "fPercentage": "0"
+      },
+      {
+        "sCommissionGroupCode": "COFFEE12",
+        "sCommissionGroupName": "COFFEE 12 MONTH",
+        "mAmount": {
+          "dAmount": "12",
+          "sCurrency": "GBP"
+        },
+        "fPercentage": "0"
+      },
+      {
+        "sCommissionGroupCode": "BOOST1",
+        "sCommissionGroupName": "AOV Boost 6%",
+        "mAmount": null,
+        "fPercentage": "6"
+      },
+      {
+        "sCommissionGroupCode": "BOOST2",
+        "sCommissionGroupName": "AOV Boost 8%",
+        "mAmount": null,
+        "fPercentage": "8"
+      },
+      {
+        "sCommissionGroupCode": "BOOST3",
+        "sCommissionGroupName": "AOV Boost 10%",
+        "mAmount": null,
+        "fPercentage": "10"
+      },
+      {
+        "sCommissionGroupCode": "DEFAULT",
+        "sCommissionGroupName": "DEFAULT",
+        "mAmount": null,
+        "fPercentage": "7"
+      },
+      {
+        "sCommissionGroupCode": "MOBILE_SALE",
+        "sCommissionGroupName": "MOBILE_SALE",
+        "mAmount": null,
+        "fPercentage": "0"
+      },
+      {
+        "sCommissionGroupCode": "MOBILE_LEAD",
+        "sCommissionGroupName": "MOBILE_LEAD",
+        "mAmount": {
+          "dAmount": "0",
+          "sCurrency": "GBP"
+        },
+        "fPercentage": "0"
+      },
+      {
+        "sCommissionGroupCode": "NEW1",
+        "sCommissionGroupName": "NEW CUSTOMER",
+        "mAmount": null,
+        "fPercentage": "9"
+      },
+      {
+        "sCommissionGroupCode": "EXISTING1",
+        "sCommissionGroupName": "EXISTING CUSTOMER",
+        "mAmount": null,
+        "fPercentage": "7"
+      }
+    ]
+  },
+  "_rawResponse": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<SOAP-ENV:Envelope xmlns:SOAP-ENV=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:ns1=\"http://api.affiliatewindow.com/\"><SOAP-ENV:Body><ns1:getCommissionGroupListResponse><ns1:getCommissionGroupListReturn><ns1:CommissionGroup><ns1:sCommissionGroupCode>TEA1</ns1:sCommissionGroupCode><ns1:sCommissionGroupName>TEA 1 MONTH</ns1:sCommissionGroupName><ns1:mAmount><ns1:dAmount>1</ns1:dAmount><ns1:sCurrency>GBP</ns1:sCurrency></ns1:mAmount><ns1:fPercentage>0</ns1:fPercentage></ns1:CommissionGroup><ns1:CommissionGroup><ns1:sCommissionGroupCode>TEA3</ns1:sCommissionGroupCode><ns1:sCommissionGroupName>TEA 3 MONTH</ns1:sCommissionGroupName><ns1:mAmount><ns1:dAmount>3</ns1:dAmount><ns1:sCurrency>GBP</ns1:sCurrency></ns1:mAmount><ns1:fPercentage>0</ns1:fPercentage></ns1:CommissionGroup><ns1:CommissionGroup><ns1:sCommissionGroupCode>TEA6</ns1:sCommissionGroupCode><ns1:sCommissionGroupName>TEA 6 MONTH</ns1:sCommissionGroupName><ns1:mAmount><ns1:dAmount>6</ns1:dAmount><ns1:sCurrency>GBP</ns1:sCurrency></ns1:mAmount><ns1:fPercentage>0</ns1:fPercentage></ns1:CommissionGroup><ns1:CommissionGroup><ns1:sCommissionGroupCode>TEA12</ns1:sCommissionGroupCode><ns1:sCommissionGroupName>TEA 12 MONTH</ns1:sCommissionGroupName><ns1:mAmount><ns1:dAmount>12</ns1:dAmount><ns1:sCurrency>GBP</ns1:sCurrency></ns1:mAmount><ns1:fPercentage>0</ns1:fPercentage></ns1:CommissionGroup><ns1:CommissionGroup><ns1:sCommissionGroupCode>COFFEE1</ns1:sCommissionGroupCode><ns1:sCommissionGroupName>COFFEE 1 MONTH</ns1:sCommissionGroupName><ns1:mAmount><ns1:dAmount>1</ns1:dAmount><ns1:sCurrency>GBP</ns1:sCurrency></ns1:mAmount><ns1:fPercentage>0</ns1:fPercentage></ns1:CommissionGroup><ns1:CommissionGroup><ns1:sCommissionGroupCode>COFFEE3</ns1:sCommissionGroupCode><ns1:sCommissionGroupName>COFFEE 3 MONTH</ns1:sCommissionGroupName><ns1:mAmount><ns1:dAmount>3</ns1:dAmount><ns1:sCurrency>GBP</ns1:sCurrency></ns1:mAmount><ns1:fPercentage>0</ns1:fPercentage></ns1:CommissionGroup><ns1:CommissionGroup><ns1:sCommissionGroupCode>COFFEE6</ns1:sCommissionGroupCode><ns1:sCommissionGroupName>COFFEE 6 MONTH</ns1:sCommissionGroupName><ns1:mAmount><ns1:dAmount>6</ns1:dAmount><ns1:sCurrency>GBP</ns1:sCurrency></ns1:mAmount><ns1:fPercentage>0</ns1:fPercentage></ns1:CommissionGroup><ns1:CommissionGroup><ns1:sCommissionGroupCode>COFFEE12</ns1:sCommissionGroupCode><ns1:sCommissionGroupName>COFFEE 12 MONTH</ns1:sCommissionGroupName><ns1:mAmount><ns1:dAmount>12</ns1:dAmount><ns1:sCurrency>GBP</ns1:sCurrency></ns1:mAmount><ns1:fPercentage>0</ns1:fPercentage></ns1:CommissionGroup><ns1:CommissionGroup><ns1:sCommissionGroupCode>BOOST1</ns1:sCommissionGroupCode><ns1:sCommissionGroupName>AOV Boost 6%</ns1:sCommissionGroupName><ns1:mAmount/><ns1:fPercentage>6</ns1:fPercentage></ns1:CommissionGroup><ns1:CommissionGroup><ns1:sCommissionGroupCode>BOOST2</ns1:sCommissionGroupCode><ns1:sCommissionGroupName>AOV Boost 8%</ns1:sCommissionGroupName><ns1:mAmount/><ns1:fPercentage>8</ns1:fPercentage></ns1:CommissionGroup><ns1:CommissionGroup><ns1:sCommissionGroupCode>BOOST3</ns1:sCommissionGroupCode><ns1:sCommissionGroupName>AOV Boost 10%</ns1:sCommissionGroupName><ns1:mAmount/><ns1:fPercentage>10</ns1:fPercentage></ns1:CommissionGroup><ns1:CommissionGroup><ns1:sCommissionGroupCode>DEFAULT</ns1:sCommissionGroupCode><ns1:sCommissionGroupName>DEFAULT</ns1:sCommissionGroupName><ns1:mAmount/><ns1:fPercentage>7</ns1:fPercentage></ns1:CommissionGroup><ns1:CommissionGroup><ns1:sCommissionGroupCode>MOBILE_SALE</ns1:sCommissionGroupCode><ns1:sCommissionGroupName>MOBILE_SALE</ns1:sCommissionGroupName><ns1:mAmount/><ns1:fPercentage>0</ns1:fPercentage></ns1:CommissionGroup><ns1:CommissionGroup><ns1:sCommissionGroupCode>MOBILE_LEAD</ns1:sCommissionGroupCode><ns1:sCommissionGroupName>MOBILE_LEAD</ns1:sCommissionGroupName><ns1:mAmount><ns1:dAmount>0</ns1:dAmount><ns1:sCurrency>GBP</ns1:sCurrency></ns1:mAmount><ns1:fPercentage>0</ns1:fPercentage></ns1:CommissionGroup><ns1:CommissionGroup><ns1:sCommissionGroupCode>NEW1</ns1:sCommissionGroupCode><ns1:sCommissionGroupName>NEW CUSTOMER</ns1:sCommissionGroupName><ns1:mAmount/><ns1:fPercentage>9</ns1:fPercentage></ns1:CommissionGroup><ns1:CommissionGroup><ns1:sCommissionGroupCode>EXISTING1</ns1:sCommissionGroupCode><ns1:sCommissionGroupName>EXISTING CUSTOMER</ns1:sCommissionGroupName><ns1:mAmount/><ns1:fPercentage>7</ns1:fPercentage></ns1:CommissionGroup></ns1:getCommissionGroupListReturn></ns1:getCommissionGroupListResponse></SOAP-ENV:Body></SOAP-ENV:Envelope>"
+}

@@ -1,0 +1,11 @@
+{
+  "getCommissionGroupListReturn": {
+    "CommissionGroup": {
+      "sCommissionGroupCode": "DEFAULT",
+      "sCommissionGroupName": "DEFAULT",
+      "mAmount": null,
+      "fPercentage": "8"
+    }
+  },
+  "_rawResponse": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<SOAP-ENV:Envelope xmlns:SOAP-ENV=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:ns1=\"http://api.affiliatewindow.com/\"><SOAP-ENV:Body><ns1:getCommissionGroupListResponse><ns1:getCommissionGroupListReturn><ns1:CommissionGroup><ns1:sCommissionGroupCode>DEFAULT</ns1:sCommissionGroupCode><ns1:sCommissionGroupName>DEFAULT</ns1:sCommissionGroupName><ns1:mAmount/><ns1:fPercentage>8</ns1:fPercentage></ns1:CommissionGroup></ns1:getCommissionGroupListReturn></ns1:getCommissionGroupListResponse></SOAP-ENV:Body></SOAP-ENV:Envelope>"
+}

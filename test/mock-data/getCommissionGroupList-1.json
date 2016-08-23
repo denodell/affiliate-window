@@ -1,0 +1,46 @@
+{
+  "getCommissionGroupListReturn": {
+    "CommissionGroup": [
+      {
+        "sCommissionGroupCode": "DEFAULT",
+        "sCommissionGroupName": "Default Commission",
+        "mAmount": null,
+        "fPercentage": "8"
+      },
+      {
+        "sCommissionGroupCode": "SALE",
+        "sCommissionGroupName": "Sale",
+        "mAmount": null,
+        "fPercentage": "6"
+      },
+      {
+        "sCommissionGroupCode": "VOUCHER_CODE",
+        "sCommissionGroupName": "Voucher Code",
+        "mAmount": null,
+        "fPercentage": "6"
+      },
+      {
+        "sCommissionGroupCode": "MOBILE_SALE",
+        "sCommissionGroupName": "MOBILE_SALE",
+        "mAmount": null,
+        "fPercentage": "0"
+      },
+      {
+        "sCommissionGroupCode": "MOBILE_LEAD",
+        "sCommissionGroupName": "MOBILE_LEAD",
+        "mAmount": {
+          "dAmount": "0",
+          "sCurrency": "GBP"
+        },
+        "fPercentage": "0"
+      },
+      {
+        "sCommissionGroupCode": "AMEND",
+        "sCommissionGroupName": "AMEND",
+        "mAmount": null,
+        "fPercentage": "10"
+      }
+    ]
+  },
+  "_rawResponse": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<SOAP-ENV:Envelope xmlns:SOAP-ENV=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:ns1=\"http://api.affiliatewindow.com/\"><SOAP-ENV:Body><ns1:getCommissionGroupListResponse><ns1:getCommissionGroupListReturn><ns1:CommissionGroup><ns1:sCommissionGroupCode>DEFAULT</ns1:sCommissionGroupCode><ns1:sCommissionGroupName>Default Commission</ns1:sCommissionGroupName><ns1:mAmount/><ns1:fPercentage>8</ns1:fPercentage></ns1:CommissionGroup><ns1:CommissionGroup><ns1:sCommissionGroupCode>SALE</ns1:sCommissionGroupCode><ns1:sCommissionGroupName>Sale</ns1:sCommissionGroupName><ns1:mAmount/><ns1:fPercentage>6</ns1:fPercentage></ns1:CommissionGroup><ns1:CommissionGroup><ns1:sCommissionGroupCode>VOUCHER_CODE</ns1:sCommissionGroupCode><ns1:sCommissionGroupName>Voucher Code</ns1:sCommissionGroupName><ns1:mAmount/><ns1:fPercentage>6</ns1:fPercentage></ns1:CommissionGroup><ns1:CommissionGroup><ns1:sCommissionGroupCode>MOBILE_SALE</ns1:sCommissionGroupCode><ns1:sCommissionGroupName>MOBILE_SALE</ns1:sCommissionGroupName><ns1:mAmount/><ns1:fPercentage>0</ns1:fPercentage></ns1:CommissionGroup><ns1:CommissionGroup><ns1:sCommissionGroupCode>MOBILE_LEAD</ns1:sCommissionGroupCode><ns1:sCommissionGroupName>MOBILE_LEAD</ns1:sCommissionGroupName><ns1:mAmount><ns1:dAmount>0</ns1:dAmount><ns1:sCurrency>GBP</ns1:sCurrency></ns1:mAmount><ns1:fPercentage>0</ns1:fPercentage></ns1:CommissionGroup><ns1:CommissionGroup><ns1:sCommissionGroupCode>AMEND</ns1:sCommissionGroupCode><ns1:sCommissionGroupName>AMEND</ns1:sCommissionGroupName><ns1:mAmount/><ns1:fPercentage>10</ns1:fPercentage></ns1:CommissionGroup></ns1:getCommissionGroupListReturn></ns1:getCommissionGroupListResponse></SOAP-ENV:Body></SOAP-ENV:Envelope>"
+}
