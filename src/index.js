@@ -2,28 +2,32 @@ import 'babel-polyfill'
 import 'source-map-support/register'
 import soap from 'soap-as-promised'
 
-const WEB_SERVICE_URL = 'http://api.affiliatewindow.com/v6/AffiliateService?wsdl'
+const PUBLISHER_SERVICE_WSDL_URL = 'http://api.affiliatewindow.com/v6/AffiliateService?wsdl'
+const PRODUCT_SERVE_WSDL_URL = 'http://v3.core.com.productserve.com/ProductServeService.wsdl'
 
 export default class AffiliateWindow {
 	config = {
 		publisherId: '',
 		apiPassword: '',
+		productServeApiKey: '34c105baeb240b5438defd7c45fef2d6',
 	}
 
-	constructor({ publisherId, apiPassword }) {
+	constructor({ publisherId, apiPassword, productServeApiKey }) {
 		this.config = Object.assign({}, this.config, {
 			publisherId,
 			apiPassword,
+			productServeApiKey,
 		})
 	}
 
-	connect() {
-		return soap.createClient(WEB_SERVICE_URL).then(client => {
-			const { publisherId: iId, apiPassword: sPassword } = this.config
+	connect(url) {
+		return soap.createClient(url).then(client => {
+			const { publisherId: iId, apiPassword: sPassword, productServeApiKey: sApiKey } = this.config
 			client.addSoapHeader({
 				UserAuthentication: {
 					iId,
 					sPassword,
+					sApiKey,
 					sType: 'affiliate',
 				},
 			})
@@ -31,16 +35,25 @@ export default class AffiliateWindow {
 		})
 	}
 
-	getMerchants({ joined = true } = {}) {
-		return this.connect().then(client => {
+	getMerchantsSimple({ joined = true } = {}) {
+		return this.connect(PUBLISHER_SERVICE_WSDL_URL).then(client => {
 			return client.getMerchantList(joined ? { sRelationship: 'joined' } : {}).then(result => {
 				const { getMerchantListReturn = {} } = result
 				const { Merchant = [] } = getMerchantListReturn
-				const aMerchantIds = Merchant.map(merchant => merchant.iId)
+				return Merchant
+			})
+		})
+	}
+
+	getMerchants({ joined = true } = {}) {
+		return this.getMerchantsSimple({ joined }).then(merchants => {
+			const aMerchantIds = merchants.map(merchant => merchant.iId)
+
+			return this.connect(PUBLISHER_SERVICE_WSDL_URL).then(client => {
 				const promises = aMerchantIds.map(id => client.getCommissionGroupList({ iMerchantId: id }))
 
 				return Promise.all(promises).then(data => data.map(data => (data.getCommissionGroupListReturn || {}).CommissionGroup || [])).then(data => {
-					const merchants = Merchant.map((merchant, index) => {
+					return merchants.map((merchant, index) => {
 						let commissionGroups = data[index] ? Array.isArray(data[index]) ? data[index]: [data[index]] : []
 						commissionGroups = commissionGroups.map(group => Object.assign({}, group, {
 							fPercentage: typeof(group.fPercentage) === 'string' ? +group.fPercentage : group.fPercentage,
@@ -54,16 +67,21 @@ export default class AffiliateWindow {
 							aCommissionGroups: commissionGroups,
 						})
 					})
-
-					return merchants
 				})
 			})
 		})
 	}
 
-	// TODO:
 	getVouchers() {
-
+		return this.getMerchantsSimple({ joined: true }).then(merchants => {
+			return this.connect(PRODUCT_SERVE_WSDL_URL).then(client => {
+				const promises = merchants.map(merchant => merchant.iId).map(iMerchantId => client.getDiscountCodes({ iMerchantId }).then(out => out && out.oDiscountCode || {}))
+				return Promise.all(promises).then(data => {
+					const vouchers = data.filter(voucher => !!voucher).reduce((previous, current) => previous.concat(current), [])
+					return vouchers
+				})
+			})
+		})
 	}
 
 	// TODO:
@@ -75,7 +93,7 @@ export default class AffiliateWindow {
 		startDate = new Date(Date.now() - (30 * 1000 * 60 * 60 * 24)).toISOString(), // 30 days ago
 		endDate = new Date().toISOString(),	// now
 	} = {}) {
-		return this.connect().then(client => client.getTransactionList({
+		return this.connect(PUBLISHER_SERVICE_WSDL_URL).then(client => client.getTransactionList({
 			dStartDate: startDate,
 			dEndDate: endDate,
 			sDateType: 'transaction',

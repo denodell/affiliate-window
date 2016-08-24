@@ -15,6 +15,9 @@ const getCommissionGroupListData = {
 	7204: JSON.parse(fs.readFileSync('./mock-data/getCommissionGroupList-7.json', 'utf-8')),
 	7256: JSON.parse(fs.readFileSync('./mock-data/getCommissionGroupList-8.json', 'utf-8')),
 }
+const getDiscountCodes = {
+	3744: JSON.parse(fs.readFileSync('./mock-data/getDiscountCodes-0.json', 'utf-8')),
+}
 
 describe(`Affiliate Window`, it => {
 	let AW
@@ -22,6 +25,7 @@ describe(`Affiliate Window`, it => {
 	sinon.stub(AffiliateWindow.prototype, 'connect').returns(Promise.resolve({
 		getMerchantList: () => Promise.resolve(getMerchantListData),
 		getCommissionGroupList: ({ iMerchantId }) => Promise.resolve(getCommissionGroupListData[iMerchantId]),
+		getDiscountCodes: ({ iMerchantId }) => Promise.resolve(getDiscountCodes[iMerchantId]),
 		getTransactionList: () => Promise.resolve(getTransactionListData),
 	}))
 
@@ -29,12 +33,18 @@ describe(`Affiliate Window`, it => {
 		AW = new AffiliateWindow({
 			publisherId: '-',
 			apiPassword: '-',
+			productServeApiKey: '-',
 		})
 	})
 
 	it('Joined Merchants', async expect => {
 		let joinedMerchants = await AW.getMerchants({ joined: true })
 		expect.true(joinedMerchants.length > 0)
+	})
+
+	it(`Vouchers`, async expect => {
+		let vouchers = await AW.getVouchers()
+		expect.true(vouchers.length > 0)
 	})
 
 	it('Transactions', async expect => {

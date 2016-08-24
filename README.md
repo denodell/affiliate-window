@@ -31,7 +31,7 @@ var AW = new AffiliateWindow({
 
 Returning a list of joined merchants (including commission group data):
 ```
- AW.getMerchants({ joined: true }).then(function (merchants) {
+AW.getMerchants({ joined: true }).then(function (merchants) {
 	 /*
 	 'merchants' has the following example format:
 	 [{
@@ -55,6 +55,23 @@ Returning a list of joined merchants (including commission group data):
      ]
    }, ...]
 	 */
+})
+```
+
+Returning a list of voucher codes
+```
+AW.getVouchers().then(function (vouchers) {
+	/*
+	'vouchers' has the following example format:
+	[{
+    "iMerchantId": 3744,
+    "sCode": "RMV8",
+    "sDescription": "8% OFF ALL TRANSACTIONS",
+    "sUrl": "http://www.awin1.com/cread.php?v=3744&t=272967&p=http://www.rockmyvintage.co.uk/",
+    "sStartDate": "2014-04-02 23:00:00",
+    "sEndDate": "2019-04-03 22:59:59"
+  }]
+	*/
 })
 ```
 
