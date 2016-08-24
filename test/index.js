@@ -16,7 +16,15 @@ const getCommissionGroupListData = {
 	7256: JSON.parse(fs.readFileSync('./mock-data/getCommissionGroupList-8.json', 'utf-8')),
 }
 const getDiscountCodes = {
+	9: [{}],
+	2186: [{}],
+	3355: [{}],
+	3578: [{}],
 	3744: JSON.parse(fs.readFileSync('./mock-data/getDiscountCodes-0.json', 'utf-8')),
+	6733: [{}],
+	6986: [{}],
+	7204: [{}],
+	7256: [{}],
 }
 
 describe(`Affiliate Window`, it => {

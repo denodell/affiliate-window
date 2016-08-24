@@ -77,7 +77,7 @@ export default class AffiliateWindow {
 			return this.connect(PRODUCT_SERVE_WSDL_URL).then(client => {
 				const promises = merchants.map(merchant => merchant.iId).map(iMerchantId => client.getDiscountCodes({ iMerchantId }).then(out => out && out.oDiscountCode || {}))
 				return Promise.all(promises).then(data => {
-					const vouchers = data.filter(voucher => !!voucher).reduce((previous, current) => previous.concat(current), [])
+					const vouchers = data.reduce((previous, current) => previous.concat(current), []).filter(voucher => voucher && voucher.sCode)
 					return vouchers
 				})
 			})
