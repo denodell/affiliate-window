@@ -101,7 +101,7 @@ export default class AffiliateWindow {
 		})).then(result => {
 			const { getTransactionListReturn = {} } = result
 			const { Transaction = [] } = getTransactionListReturn || {}
-			return Transaction
+			return Array.isArray(Transaction) ? Transaction : [Transaction]
 		})
 	}
 }
