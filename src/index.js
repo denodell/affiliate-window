@@ -90,18 +90,38 @@ export default class AffiliateWindow {
 	}
 
 	getTransactions({
-		startDate = new Date(Date.now() - (30 * 1000 * 60 * 60 * 24)).toISOString(), // 30 days ago
-		endDate = new Date().toISOString(),	// now
+		startDate = new Date(Date.now() - (365 * 1000 * 60 * 60 * 24)), // 365 days ago
+		endDate = new Date(),	// now
 	} = {}) {
-		return this.connect(PUBLISHER_SERVICE_WSDL_URL).then(client => client.getTransactionList({
-			dStartDate: startDate,
-			dEndDate: endDate,
-			sDateType: 'transaction',
-			iLimit: 1000,
-		})).then(result => {
-			const { getTransactionListReturn = {} } = result
-			const { Transaction = [] } = getTransactionListReturn || {}
-			return Array.isArray(Transaction) ? Transaction : [Transaction]
+		const dateRangeInDays = (endDate - startDate ) / (1000 * 60 * 60 * 24)
+		const numberOf30DayRanges = Math.ceil(dateRangeInDays / 30)
+		let index = 0
+		let promises = []
+
+		return this.connect(PUBLISHER_SERVICE_WSDL_URL).then(client => {
+			for (; index < numberOf30DayRanges; index++) {
+				const startDateToUse = new Date(startDate.getTime() + (index * (30 * 1000 * 60 * 60 * 24)))
+				let endDateToUse = new Date(startDate.getTime() + ((index + 1) * (30 * 1000 * 60 * 60 * 24)))
+				if (endDateToUse > endDate) {
+					endDateToUse = endDate
+				}
+
+				promises.push(client.getTransactionList({
+					dStartDate: startDateToUse.toISOString(),
+					dEndDate: endDateToUse.toISOString(),
+					sDateType: 'transaction',
+					iLimit: 1000,
+				}))
+			}
+
+			return Promise.all(promises)
+		}).then(results => {
+			results = results.map(result => {
+				const { getTransactionListReturn = {} } = result
+				const { Transaction = [] } = getTransactionListReturn || {}
+				return Array.isArray(Transaction) ? Transaction : [Transaction]
+			})
+			return results.reduce((prev, curr) => prev.concat(curr), [])
 		})
 	}
 }
