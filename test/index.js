@@ -42,6 +42,7 @@ describe(`Affiliate Window`, it => {
 			publisherId: '-',
 			apiPassword: '-',
 			productServeApiKey: '-',
+			promotionsId: '-',
 		})
 	})
 

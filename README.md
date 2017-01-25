@@ -11,6 +11,7 @@ Contains utilities to simplify interaction with the Affiliate Window marketing n
  - Affiliate Window publisher ID
  - Affiliate Window API Key
  - Affiliate Window ProductServe API Key
+ - Affiliate Window Promotions ID (located under Link & Tools \ My Offers in the AW interface)
 
 ## Install
 
@@ -38,7 +39,7 @@ AW.getMerchants({ joined: true }).then(function (merchants) {
      "iId": 9,
      "sName": "Fragrancedirect",
      "sDisplayUrl": "http://www.fragrancedirect.co.uk",
-     "sClickThroughUrl": "http://www.awin1.com/awclick.php?mid=9&id=272967",
+     "sClickThroughUrl": "http://www.awin1.com/awclick.php?mid=9&id=XXXX",
      "oPrimaryRegion": {
        "sName": "United Kingdom",
        "sCountryCode": "GBR",
@@ -64,10 +65,11 @@ AW.getVouchers().then(function (vouchers) {
 	/*
 	'vouchers' has the following example format:
 	[{
+		"id": 1234,
     "iMerchantId": 3744,
     "sCode": "RMV8",
     "sDescription": "8% OFF ALL TRANSACTIONS",
-    "sUrl": "http://www.awin1.com/cread.php?v=3744&t=272967&p=http://www.rockmyvintage.co.uk/",
+    "sUrl": "http://www.awin1.com/cread.php?v=3744&t=XXXX&p=http://www.rockmyvintage.co.uk/",
     "sStartDate": "2014-04-02 23:00:00",
     "sEndDate": "2019-04-03 22:59:59"
   }]
