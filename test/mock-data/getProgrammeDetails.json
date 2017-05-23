@@ -1,0 +1,26 @@
+[{
+  "programmeInfo": {
+    "displayUrl": "http://www.swerve.co.uk",
+    "clickThroughUrl": "http://www.awin1.com/awclick.php?mid=4&id=12345",
+    "logoUrl": "http://www.affiliatewindow.com/logos/4/logo.gif",
+    "id": 4,
+    "name": "Swerve",
+    "currencyCode": "GBP",
+    "primaryRegion": [
+      null
+    ]
+  },
+  "kpi": {
+    "averagePaymentTime": "56",
+    "approvalPercentage": 100,
+    "epc": 0.45,
+    "conversionRate": 8.54,
+    "validationDays": 29,
+    "awinIndex": 74.02
+  },
+  "commissionRange": [
+    [
+      null
+    ]
+  ]
+}]

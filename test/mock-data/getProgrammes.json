@@ -1,0 +1,98 @@
+[
+  {
+    "id": 4,
+    "name": "Swerve",
+    "displayUrl": "http://www.swerve.co.uk",
+    "clickThroughUrl": "http://www.awin1.com/awclick.php?mid=4&id=12345",
+    "logoUrl": "http://www.affiliatewindow.com/logos/4/logo.gif",
+    "primaryRegion": {
+      "name": "United Kingdom",
+      "countryCode": "GB"
+    },
+    "currencyCode": "GBP"
+  },
+  {
+    "id": 9,
+    "name": "Fragrancedirect",
+    "displayUrl": "http://www.fragrancedirect.co.uk",
+    "clickThroughUrl": "http://www.awin1.com/awclick.php?mid=9&id=12345",
+    "logoUrl": "http://www.affiliatewindow.com/logos/9/logo.gif",
+    "primaryRegion": {
+      "name": "United Kingdom",
+      "countryCode": "GB"
+    },
+    "currencyCode": "GBP"
+  },
+  {
+    "id": 61,
+    "name": "TheDrinkShop",
+    "displayUrl": "http://www.thedrinkshop.com",
+    "clickThroughUrl": "http://www.awin1.com/awclick.php?mid=61&id=12345",
+    "logoUrl": "http://www.affiliatewindow.com/logos/61/logo.gif",
+    "primaryRegion": {
+      "name": "United Kingdom",
+      "countryCode": "GB"
+    },
+    "currencyCode": "GBP"
+  },
+  {
+    "id": 65,
+    "name": "Pharmacy2U",
+    "displayUrl": "http://www.pharmacy2u.co.uk",
+    "clickThroughUrl": "http://www.awin1.com/awclick.php?mid=65&id=12345",
+    "logoUrl": "http://www.affiliatewindow.com/logos/65/logo.gif",
+    "primaryRegion": {
+      "name": "United Kingdom",
+      "countryCode": "GB"
+    },
+    "currencyCode": "GBP"
+  },
+  {
+    "id": 164,
+    "name": "Prezzybox",
+    "displayUrl": "http://www.prezzybox.com",
+    "clickThroughUrl": "http://www.awin1.com/awclick.php?mid=164&id=12345",
+    "logoUrl": "http://www.affiliatewindow.com/logos/164/logo.gif",
+    "primaryRegion": {
+      "name": "United Kingdom",
+      "countryCode": "GB"
+    },
+    "currencyCode": "GBP"
+  },
+  {
+    "id": 189,
+    "name": "Flowers Direct",
+    "displayUrl": "http://www.flowersdirect.co.uk",
+    "clickThroughUrl": "http://www.awin1.com/awclick.php?mid=189&id=12345",
+    "logoUrl": "http://www.affiliatewindow.com/logos/189/logo.gif",
+    "primaryRegion": {
+      "name": "United Kingdom",
+      "countryCode": "GB"
+    },
+    "currencyCode": "GBP"
+  },
+  {
+    "id": 286,
+    "name": "artrepublic",
+    "displayUrl": "http://www.artrepublic.com",
+    "clickThroughUrl": "http://www.awin1.com/awclick.php?mid=286&id=12345",
+    "logoUrl": "http://www.affiliatewindow.com/logos/286/logo.gif",
+    "primaryRegion": {
+      "name": "United Kingdom",
+      "countryCode": "GB"
+    },
+    "currencyCode": "GBP"
+  },
+  {
+    "id": 483,
+    "name": "B & Q",
+    "displayUrl": "http://www.diy.com",
+    "clickThroughUrl": "http://www.awin1.com/awclick.php?mid=483&id=12345",
+    "logoUrl": "http://www.affiliatewindow.com/logos/483/logo.gif",
+    "primaryRegion": {
+      "name": "United Kingdom",
+      "countryCode": "GB"
+    },
+    "currencyCode": "GBP"
+  }
+]

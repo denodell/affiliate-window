@@ -1,0 +1,13 @@
+{
+  "advertiser": 8009,
+  "publisher": 12345,
+  "commissionGroups": [
+    {
+      "groupId": 127517,
+      "groupCode": "DEFAULT",
+      "groupName": "Default",
+      "type": "percentage",
+      "percentage": 0
+    }
+  ]
+}

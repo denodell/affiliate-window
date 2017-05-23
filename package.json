@@ -1,7 +1,8 @@
 {
   "name": "affiliate-window",
-  "version": "0.0.8",
-  "description": "Affiliate Window API Helper Methods For Node / JavaScript",
+  "version": "1.0.0",
+  "description": "Awin / Affiliate Window API Helper Methods For Node / JavaScript",
+  "keywords": ["awin", "affiliate"],
   "author": {
     "name": "Den Odell",
     "email": "denodell@me.com"
@@ -43,6 +44,7 @@
     "babel-runtime": "^6.22.0",
     "date-format-lite": "^0.9.1",
     "get-csv": "^2.1.3",
+    "isomorphic-fetch": "^2.2.1",
     "soap-as-promised": "^1.16.0",
     "source-map-support": "^0.4.1"
   },

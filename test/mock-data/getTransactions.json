@@ -1,0 +1,48 @@
+[
+  {
+    "id": 283309559,
+    "url": "https://www.onedigitalclub.com",
+    "advertiserId": 6795,
+    "publisherId": 12345,
+    "siteName": "ABC",
+    "commissionStatus": "approved",
+    "commissionAmount": {
+      "amount": 27.25,
+      "currency": "GBP"
+    },
+    "saleAmount": {
+      "amount": 389.27,
+      "currency": "GBP"
+    },
+    "clickRefs": {
+      "clickRef": "57b2ecd9429847110062cec8"
+    },
+    "clickDate": "2017-04-26T21:10:00",
+    "transactionDate": "2017-04-26T21:41:00",
+    "validationDate": "2017-05-04T16:19:00",
+    "type": "Commission group transaction",
+    "declineReason": null,
+    "voucherCodeUsed": false,
+    "lapseTime": 1824,
+    "amended": false,
+    "amendReason": null,
+    "oldSaleAmount": null,
+    "oldCommissionAmount": null,
+    "clickDevice": "Apple Mac",
+    "transactionDevice": "Apple Mac",
+    "publisherUrl": null,
+    "advertiserCountry": "GB",
+    "orderRef": null,
+    "customParameters": null,
+    "transactionParts": [
+      {
+        "commissionGroupId": 126489,
+        "amount": 27.25
+      }
+    ],
+    "paidToPublisher": false,
+    "paymentId": 0,
+    "transactionQueryId": 0,
+    "originalSaleAmount": null
+  }
+]

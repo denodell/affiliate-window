@@ -1,17 +1,13 @@
-Affiliate Window API Helper Methods
+Awin / Affiliate Window API Helper Methods
 -----------------------------------
 
-_Warning: ALPHA release - unstable API and feature incomplete_
-
-Contains utilities to simplify interaction with the Affiliate Window marketing network APIs.
+Contains utilities to simplify interaction with the Awin (formerly known as Affiliate Window) marketing network APIs.
 
 ## Prerequisites
 
  - Node.js / NPM
- - Affiliate Window publisher ID
- - Affiliate Window API Key
- - Affiliate Window ProductServe API Key
- - Affiliate Window Promotions ID (located under Link & Tools \ My Offers in the AW interface)
+ - Awin oAuth Token
+ - Awin Promotions ID (located under Link & Tools \ My Offers in the Awin interface) for getting voucher codes
 
 ## Install
 
@@ -22,111 +18,89 @@ npm i affiliate-window --save
 ## Usage
 
 ```
-var AffiliateWindow = require('affiliate-window')
+var Awin = require('affiliate-window')
 
-var AW = new AffiliateWindow({
- publisherId: 'xxxx',
- apiPassword: 'xxxx'
+var AW = new Awin({
+ oAuthToken: 'xxxx',
 })
 ```
 
-Returning a list of joined merchants (including commission group data):
+Returning a list of accounts: (http://wiki.awin.com/index.php/API_get_accounts)
 ```
-AW.getMerchants({ joined: true }).then(function (merchants) {
-	 /*
-	 'merchants' has the following example format:
-	 [{
-     "iId": 9,
-     "sName": "Fragrancedirect",
-     "sDisplayUrl": "http://www.fragrancedirect.co.uk",
-     "sClickThroughUrl": "http://www.awin1.com/awclick.php?mid=9&id=XXXX",
-     "oPrimaryRegion": {
-       "sName": "United Kingdom",
-       "sCountryCode": "GBR",
-       "sCurrencyCode": "GBP"
-     },
-     "sLogoUrl": "http://www.affiliatewindow.com/logos/9/logo.gif",
-     "aCommissionGroups": [
-       {
-         "sCommissionGroupCode": "DEFAULT",
-         "sCommissionGroupName": "Default Commission",
-         "mAmount": null,
-         "fPercentage": 5
-       }
-     ]
-   }, ...]
-	 */
+AW.getAccounts().then(function (accounts) {
+	 // 'accounts' has the response format described at: http://wiki.awin.com/index.php/API_get_accounts
 })
 ```
 
-Returning a list of voucher codes
+Returning a list of programmes: (http://wiki.awin.com/index.php/API_get_programmes)
 ```
-AW.getVouchers().then(function (vouchers) {
-	/*
-	'vouchers' has the following example format:
-	[{
-		"id": 1234,
-    "iMerchantId": 3744,
-    "sCode": "RMV8",
-    "sDescription": "8% OFF ALL TRANSACTIONS",
-    "sUrl": "http://www.awin1.com/cread.php?v=3744&t=XXXX&p=http://www.rockmyvintage.co.uk/",
-    "sStartDate": "2014-04-02 23:00:00",
-    "sEndDate": "2019-04-03 22:59:59"
-  }]
-	*/
+AW.getProgrammes({ account, relationship = 'joined' }).then(function (programmes) {
+	 // 'programmes' has the response format described at: http://wiki.awin.com/index.php/API_get_programmes
 })
 ```
 
-Returning a list of transactions (by default returns the last 30 days' of transaction data):
+Returning an individual programme details: (http://wiki.awin.com/index.php/API_get_programmedetails)
+```
+AW.getProgrammeDetail({ account, advertiserId }).then(function (programmeDetail) {
+	 // 'programmeDetail' has the response format described at: http://wiki.awin.com/index.php/API_get_programmedetails
+})
+```
+
+Returning all programme details: (http://wiki.awin.com/index.php/API_get_programmedetails)
+```
+AW.getProgrammeDetails({ account }).then(function (programmeDetails) {
+	 // 'programmeDetails' has an array of responses in the format described at: http://wiki.awin.com/index.php/API_get_programmedetails
+})
+```
+
+Returning a list of commissions for a given advertiser: (http://wiki.awin.com/index.php/API_get_commissiongroups)
+```
+AW.getCommissionGroup({ account, advertiserId }).then(function (commissions) {
+	 // 'commissions' has the response format described at: http://wiki.awin.com/index.php/API_get_commissiongroups
+})
+```
+
+Returning an individual commission group by its ID: (http://wiki.awin.com/index.php/API_get_commissiongroups)
+```
+AW.getCommissionGroup({ account, commissionGroup }).then(function (commissionGroup) {
+	 // 'commissionGroup' has the response format described at: http://wiki.awin.com/index.php/API_get_commissiongroups
+})
+```
+
+Returning all commission groups for all programmes: (http://wiki.awin.com/index.php/API_get_commissiongroups)
+```
+AW.getCommissionGroups({ account, relationship = 'joined' }).then(function (commissionGroups) {
+	 // 'commissionGroups' has an array of responses in the format described at: http://wiki.awin.com/index.php/API_get_commissiongroups
+})
+```
+
+Returning a list of transactions (by default returns the last 365 days' of transaction data):
 ```
 AW.getTransactions({
-	startDate: '2016-08-21T01:00:00',
-	endDate: '2016-08-23T01:00:00'
+  account,
+	startDate: new Date(`2016-08-21T01:00:00`), // optional
+	endDate: new Date(`2016-08-23T01:00:00`), // optional
+  dateType = `transaction`, // optional
+  timezone = `UTC` // optional
 }).then(function (transactions) {
+	// 'transactions' has the following response format: http://wiki.awin.com/index.php/API_get_transactions_list
+})
+```
+
+Returning a list of voucher codes:
+```
+AW.getVouchers({ account, promotionsId }).then(function (vouchers) {
 	/*
-	'transactions' has the following example format:
+	'vouchers' has the following response format:
 	[{
-		"iId": 1234,
-		"sStatus": "declined",
-		"sType": "normal",
-		"sIp": "?",
-		"bPaid": false,
-		"iPaymentId": 0,
-		"sDeclinedReason": "",
-		"iMerchantId": 12345,
-		"mSaleAmount": {
-			"dAmount": 1.00,
-			"sCurrency": "GBP"
-		},
-		"mCommissionAmount": {
-			"dAmount": 0.30,
-			"sCurrency": "GBP"
-		},
-		"dClickDate": "2014-02-03T15:19:11+00:00",
-		"dTransactionDate": "2014-02-03T15:19:11+00:00",
-		"dValidationDate": "2014-02-03T15:19:11+00:00",
-		"sClickref": "",
-		"sClickref2": "",
-		"sClickref3": "",
-		"sClickref4": "",
-		"sClickref5": "",
-		"sClickref6": "",
-		"sSearchSiteName": "",
-		"sSearchSiteKeyword": "",
-		"aTransactionParts": [{
-			"sCommissionGroupName": "Single",
-			"mSaleAmount": {
-				"dAmount": 1.00,
-				"sCurrency": "GBP"
-			},
-			"mCommissionAmount": {
-				"dAmount": 0.30,
-				"sCurrency": "GBP"
-			},
-			"iCommission": 0,
-			"sCommissionType": "amount"
-		}]
-	}, ...]
+		"id": 1234,
+    "advertiserId": 3744,
+    "code": "RMV8",
+    "description": "8% OFF ALL TRANSACTIONS",
+    "url": "http://www.awin1.com/cread.php?v=3744&t=XXXX&p=http://www.rockmyvintage.co.uk/",
+    "startDate": "2014-04-02 23:00:00",
+    "endDate": "2019-04-03 22:59:59"
+  }]
 	*/
 })
 ```

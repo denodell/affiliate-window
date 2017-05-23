@@ -1,0 +1,11 @@
+{
+	"accounts": [
+		{
+			"accountId": 12345,
+			"accountName": "ABC",
+			"accountType": "publisher",
+			"userRole": "userOwner"
+		}
+	],
+	"userId": 98765
+}
