@@ -40,7 +40,7 @@ export default class Awin {
 	}
 
 	getProgrammeDetail({ account, advertiserId }) {
-		this.fetchJson(`https://api.awin.com/publishers/${account}/programmedetails?advertiserId=${advertiserId}`)
+		return this.fetchJson(`https://api.awin.com/publishers/${account}/programmedetails?advertiserId=${advertiserId}`)
 	}
 
 	getProgrammeDetails({ account, relationship = `joined` }) {
@@ -57,12 +57,13 @@ export default class Awin {
 		return this.fetchJson(`https://api.awin.com/publishers/${account}/commissiongroups${urlExtra}`)
 	}
 
-	getCommissionGroups({ account, relationship = `joined` }) {
+	getProgrammeAndCommissionGroups({ account, relationship = `joined` }) {
 		return (async () => {
 			const programmes = await this.getProgrammes({ account, relationship })
 			const programmeIds = programmes.map(programme => programme.id)
 			const promises = programmeIds.map(advertiserId => this.getCommissionGroup({ account, advertiserId }))
-			return await Promise.all(promises)
+			const results = await Promise.all(promises)
+			return results.map((result, index) => Object.assign({}, programmes[index], result))
 		})()
 	}
 

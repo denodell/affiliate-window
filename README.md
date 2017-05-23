@@ -67,10 +67,12 @@ AW.getCommissionGroup({ account, commissionGroup }).then(function (commissionGro
 })
 ```
 
-Returning all commission groups for all programmes: (http://wiki.awin.com/index.php/API_get_commissiongroups)
+Returning all commission group data along with programme data: (http://wiki.awin.com/index.php/API_get_programmes and http://wiki.awin.com/index.php/API_get_commissiongroups)
 ```
-AW.getCommissionGroups({ account, relationship = 'joined' }).then(function (commissionGroups) {
-	 // 'commissionGroups' has an array of responses in the format described at: http://wiki.awin.com/index.php/API_get_commissiongroups
+AW.getProgrammeAndCommissionGroups({ account, relationship = 'joined' }).then(function (programmesAndCommissionGroups) {
+	 // 'programmesAndCommissionGroups' has an array of responses in the format described at:
+   http://wiki.awin.com/index.php/API_get_programmes
+   merged together with the response from  http://wiki.awin.com/index.php/API_get_commissiongroups
 })
 ```
 

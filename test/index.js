@@ -37,21 +37,21 @@ describe(`Awin`, it => {
 		expect.true(commissionGroup.commissionGroups.length > 0)
 	})
 
-	it(`Gets commission groups`, async expect => {
+	it(`Gets programme and commission groups`, async expect => {
 		sinon.stub(AW, `fetchJson`).returns(JSON.parse(fs.readFileSync('./mock-data/getCommissionGroups.json', 'utf-8')))
-		const commissionGroups = await AW.getCommissionGroups({ account })
-		expect.true(commissionGroups.length > 0)
+		const programmeAndCommissionGroups = await AW.getProgrammeAndCommissionGroups({ account })
+		expect.true(programmeAndCommissionGroups.length > 0)
 	})
 
-	it('Transactions', async expect => {
+	it.only('Transactions', async expect => {
 		sinon.stub(AW, `fetchJson`).returns(JSON.parse(fs.readFileSync('./mock-data/getTransactions.json', 'utf-8')))
-		let transactions = await AW.getTransactions({ account })
+		const transactions = await AW.getTransactions({ account })
 		expect.true(transactions.length > 0)
 	})
 
 	it(`Vouchers`, async expect => {
 		sinon.stub(AW, `fetchCSV`).returns(JSON.parse(fs.readFileSync('./mock-data/getVouchers.json', 'utf-8')))
-		let vouchers = await AW.getVouchers({ account, promotionsId })
+		const vouchers = await AW.getVouchers({ account, promotionsId })
 		expect.true(vouchers.length > 0)
 	})
 })
